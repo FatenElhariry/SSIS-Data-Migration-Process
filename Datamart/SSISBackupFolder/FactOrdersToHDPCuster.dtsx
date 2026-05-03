@@ -1,0 +1,1023 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/7/2017 4:11:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SSISCOOKBOOK"
+  DTS:CreatorName="SSISCOOKBOOK\Christian"
+  DTS:DTSID="{B8303FF4-3BD5-444D-A73F-00D41D51B30B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CopyFactOrdersToHDPCuster"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{18EE0B19-BC3B-400C-A9D7-7B0745BFF6C3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorksLTDW2014]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F55729F9-C2FC-44F6-B170-C4D6B4CEC067}"
+      DTS:ObjectName="LocalHost.AdventureWorksLTDW2014">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorksLTDW2014;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{07C93AB0-7EEA-4735-BA49-176E7CF071A7}"
+      DTS:ObjectName="LoadExecutionId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dft_FactOrders"
+      DTS:CreationName="SSIS.ReplacementTask"
+      DTS:DTSID="{318E2464-9C15-4727-B2FF-E995730A9920}"
+      DTS:ExecutableType="SSIS.ReplacementTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dft_FactOrders">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="der_LoadExecutionId"
+              usesDispositions="true"
+              id="2">
+              <inputs>
+                <input
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input"
+                  id="3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="3"
+                  id="4">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="5"
+                      name="LoadExecutionId"
+                      truncationRowDisposition="FailComponent"
+                      id="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"
+                          id="6">@[$Package::LoadExecutionId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"
+                          id="7">@[$Package::LoadExecutionId]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="3"
+                  id="8">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="9"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="9" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="10"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="10" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Loads data into a file in HDFS. The supported file formats are: Text, Avro, Orc."
+              name="hdfs_dst_FactOrders"
+              validateExternalMetadata="False"
+              id="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of HDFS file"
+                  expressionType="Notify"
+                  name="FilePath"
+                  id="12">/SSISCookBook/Import/FactOrders.txt</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  expressionType="Notify"
+                  name="FirstRowAsColumnNames"
+                  id="13">true</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  expressionType="Notify"
+                  name="ColumnDelimiter"
+                  id="14">|</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enable batch mode"
+                  expressionType="Notify"
+                  name="IsBatchMode"
+                  id="15">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Batch size"
+                  expressionType="Notify"
+                  name="BatchSize"
+                  id="16">10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="File Format"
+                  expressionType="Notify"
+                  name="FileFormat"
+                  id="17">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName"
+                  id="18">HdfsDest</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{52125156-F89B-4957-BBB6-0D49B368E3E3}"
+                  connectionManagerRefId="Package.ConnectionManagers[cmgr_Hadoop_Sandbox]"
+                  name="Hadoop Connection Manager"
+                  id="19" />
+              </connections>
+              <inputs>
+                <input
+                  hasSideEffects="true"
+                  name="Input"
+                  id="20">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbDate"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="38"
+                      lineageId="67"
+                      id="21" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="39"
+                      lineageId="68"
+                      id="22" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="40"
+                      lineageId="69"
+                      id="23" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="41"
+                      lineageId="70"
+                      id="24" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Category"
+                      externalMetadataColumnId="42"
+                      lineageId="71"
+                      id="25" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="43"
+                      lineageId="72"
+                      id="26" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="ProvenanceCode"
+                      externalMetadataColumnId="44"
+                      lineageId="73"
+                      id="27" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProvenanceDescription"
+                      externalMetadataColumnId="45"
+                      lineageId="74"
+                      id="28" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="EnglishDescription"
+                      externalMetadataColumnId="46"
+                      lineageId="75"
+                      id="29" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="OrderQy"
+                      externalMetadataColumnId="47"
+                      lineageId="76"
+                      id="30" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="48"
+                      lineageId="77"
+                      id="31" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="Discount"
+                      externalMetadataColumnId="49"
+                      lineageId="78"
+                      id="32" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="TaxAmount"
+                      externalMetadataColumnId="50"
+                      lineageId="79"
+                      id="33" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="51"
+                      lineageId="80"
+                      id="34" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="52"
+                      lineageId="81"
+                      id="35" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="PurchareOrderNumber"
+                      externalMetadataColumnId="53"
+                      lineageId="82"
+                      id="36" />
+                    <inputColumn
+                      cachedDataType="i8"
+                      cachedName="LoadExecutionId"
+                      externalMetadataColumnId="54"
+                      lineageId="5"
+                      id="37" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="dbDate"
+                      name="OrderDate"
+                      id="38" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName"
+                      id="39" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName"
+                      id="40" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CompanyName"
+                      id="41" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category"
+                      id="42" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductName"
+                      id="43" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="ProvenanceCode"
+                      id="44" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProvenanceDescription"
+                      id="45" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="EnglishDescription"
+                      id="46" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="OrderQy"
+                      id="47" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="UnitPrice"
+                      id="48" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Discount"
+                      id="49" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="TaxAmount"
+                      id="50" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Freight"
+                      id="51" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SalesOrderNumber"
+                      id="52" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PurchareOrderNumber"
+                      id="53" />
+                    <externalMetadataColumn
+                      dataType="i8"
+                      name="LoadExecutionId"
+                      id="54" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ole_src_DW_vwFactOrders"
+              usesDispositions="true"
+              version="7"
+              id="55">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout"
+                  id="56">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"
+                  id="57">[Cube].[FactOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"
+                  id="58"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="59">SELECT        OrderDate, FirstName, LastName, CompanyName, Category, ProductName, ProvenanceCode, ProvenanceDescription, EnglishDescription, OrderQy, UnitPrice, Discount, TaxAmount, Freight, SalesOrderNumber, 
+                         PurchareOrderNumber
+FROM            DW.vwFactOrders</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"
+                  id="60"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="61">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage"
+                  id="62">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode"
+                  id="63">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"
+                  id="64"></property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{F55729F9-C2FC-44F6-B170-C4D6B4CEC067}"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorksLTDW2014]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  id="65" />
+              </connections>
+              <outputs>
+                <output
+                  name="OLE DB Source Output"
+                  id="66">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="83"
+                      lineageId="67"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent"
+                      id="67" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="84"
+                      length="50"
+                      lineageId="68"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent"
+                      id="68" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="85"
+                      length="50"
+                      lineageId="69"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent"
+                      id="69" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="86"
+                      length="128"
+                      lineageId="70"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent"
+                      id="70" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="87"
+                      length="50"
+                      lineageId="71"
+                      name="Category"
+                      truncationRowDisposition="FailComponent"
+                      id="71" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="88"
+                      length="50"
+                      lineageId="72"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent"
+                      id="72" />
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="89"
+                      lineageId="73"
+                      name="ProvenanceCode"
+                      truncationRowDisposition="FailComponent"
+                      id="73" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="90"
+                      length="50"
+                      lineageId="74"
+                      name="ProvenanceDescription"
+                      truncationRowDisposition="FailComponent"
+                      id="74" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="91"
+                      length="400"
+                      lineageId="75"
+                      name="EnglishDescription"
+                      truncationRowDisposition="FailComponent"
+                      id="75" />
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="92"
+                      lineageId="76"
+                      name="OrderQy"
+                      truncationRowDisposition="FailComponent"
+                      id="76" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="93"
+                      lineageId="77"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent"
+                      id="77" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="94"
+                      lineageId="78"
+                      name="Discount"
+                      truncationRowDisposition="FailComponent"
+                      id="78" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="95"
+                      lineageId="79"
+                      name="TaxAmount"
+                      truncationRowDisposition="FailComponent"
+                      id="79" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="96"
+                      lineageId="80"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent"
+                      id="80" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="97"
+                      length="25"
+                      lineageId="81"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="81" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="98"
+                      length="25"
+                      lineageId="82"
+                      name="PurchareOrderNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="82" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="dbDate"
+                      name="OrderDate"
+                      id="83" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName"
+                      id="84" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName"
+                      id="85" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CompanyName"
+                      id="86" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category"
+                      id="87" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductName"
+                      id="88" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="ProvenanceCode"
+                      id="89" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProvenanceDescription"
+                      id="90" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="EnglishDescription"
+                      id="91" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="OrderQy"
+                      id="92" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="UnitPrice"
+                      id="93" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Discount"
+                      id="94" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="TaxAmount"
+                      id="95" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Freight"
+                      id="96" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SalesOrderNumber"
+                      id="97" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PurchareOrderNumber"
+                      id="98" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output"
+                  id="99">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbDate"
+                      lineageId="100"
+                      name="OrderDate"
+                      id="100" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="101"
+                      name="FirstName"
+                      id="101" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="102"
+                      name="LastName"
+                      id="102" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="103"
+                      name="CompanyName"
+                      id="103" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="104"
+                      name="Category"
+                      id="104" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="105"
+                      name="ProductName"
+                      id="105" />
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="106"
+                      name="ProvenanceCode"
+                      id="106" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="107"
+                      name="ProvenanceDescription"
+                      id="107" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      lineageId="108"
+                      name="EnglishDescription"
+                      id="108" />
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="109"
+                      name="OrderQy"
+                      id="109" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="110"
+                      name="UnitPrice"
+                      id="110" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="111"
+                      name="Discount"
+                      id="111" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="112"
+                      name="TaxAmount"
+                      id="112" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="113"
+                      name="Freight"
+                      id="113" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="114"
+                      name="SalesOrderNumber"
+                      id="114" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="115"
+                      name="PurchareOrderNumber"
+                      id="115" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="116"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="116" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="117"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="117" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="20"
+              name="Derived Column Output"
+              startId="4"
+              id="118" />
+            <path
+              endId="3"
+              name="OLE DB Source Output"
+              startId="66"
+              id="119" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\hht_HDPDWHiveTable"
+      DTS:CreationName="SSIS.ReplacementTask"
+      DTS:DTSID="{3472F3F9-DA93-49A1-8889-7A7572898979}"
+      DTS:ExecutableType="SSIS.ReplacementTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="hht_HDPDWHiveTable">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HadoopHiveTask
+          HadoopConnectionId="{52125156-F89B-4957-BBB6-0D49B368E3E3}"
+          SourceType="DirectInput"
+          InlineScript="USE SSISCookBook;&#xA;&#xA;DROP TABLE SalesExtracts;&#xA;&#xA;CREATE EXTERNAL TABLE SalesExtracts(&#xA;OrderDate timestamp,&#xA;FirstName string ,&#xA;LastName string ,&#xA;CompanyName string ,&#xA;Category string ,&#xA;ProductName string ,&#xA;ProvenanceCode smallint ,&#xA;ProvenanceDescription string ,&#xA;EnglishDescription string ,&#xA;OrderQy int,&#xA;UnitPrice decimal(12,4),&#xA;Discount decimal(12,4),&#xA;TaxAmount decimal(12,4),&#xA;Freight decimal(12,4),&#xA;SalesOrderNumber string ,&#xA;PurchaseOrderNumber string,&#xA;LoadExecutionId int&#xA;)&#xA;ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'&#xA;STORED AS TEXTFILE&#xA;LOCATION '/SSISCookBook/Import/'&#xA;tblproperties(&quot;skip.header.line.count&quot;=&quot;1&quot;); &#xA;&#xA;&#xA;CREATE TABLE IF NOT EXISTS HDPDWHiveTable&#xA;(                                  &#xA;    company         string,                                   &#xA;    category        string,  &#xA;    qtyordered      int,&#xA;    unitprice       decimal(12,4),&#xA;    discount        decimal(3,2),&#xA;    tax             decimal(12,4),&#xA;    freight         decimal(12,4),&#xA;    ordernumber     string,&#xA;    po              string                               &#xA;) &#xA;ROW FORMAT DELIMITED FIELDS TERMINATED BY ',|' LINES TERMINATED BY '10' STORED AS TEXTFILE&#xA;LOCATION '/SSISCookBook/Export/';&#xA;&#xA;&#xA;INSERT OVERWRITE TABLE HDPDWHiveTable&#xA;SELECT CompanyName, Category ,   SUM(OrderQy) AS OrderQy, AVG(UnitPrice) AS UnitPrice, SUM(Discount) AS Discount, SUM(TaxAmount) AS TaxAmount, SUM(Freight) AS Freight, &#xA;             SalesOrderNumber, PurchaseOrderNumber&#xA;FROM   SalesExtracts&#xA;GROUP BY CompanyName, Category, SalesOrderNumber, PurchaseOrderNumber;"
+          TimeoutInMinutes="1440" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9FD2FC29-8CF9-488E-9C6C-0169B6F40728}"
+      DTS:From="Package\dft_FactOrders"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\hht_HDPDWHiveTable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\dft_FactOrders"
+          TopLeft="9.25,5.5" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\hht_HDPDWHiveTable"
+          TopLeft="9.25,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="101.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dft_FactOrders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="55"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="11"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="2"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="118"
+          TopLeft="108,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="119"
+          TopLeft="108,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_FactOrders\55">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_FactOrders\11">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

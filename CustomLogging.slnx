@@ -1,0 +1,43 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Development" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Folder Name="/Docs/">
+    <File Path="migration-runbook.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="readme.md" />
+  </Folder>
+  <Project Path="D:/Learning/etl/CustomLogging/AdventureWorksLT/DB.AdventureWorksLT.sqlproj" Id="46b0e409-2fe1-4b70-aaea-3324e652efef">
+    <BuildType Solution="Development|*" Project="Release" />
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/Datamart/ETL.DW.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/DBAdventureworksLTDW2012/DB.AdventureworksLTDW.sqlproj" Id="397bdf3f-7b9b-4735-bfcf-5a721b222ada">
+    <BuildType Solution="Development|*" Project="Release" />
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/ScaleOut/ScaleOut.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/SehaTrials/SehaTrials.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/Staging/ETL.Staging.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
+  <Project Path="D:/Learning/etl/CustomLogging/TestDW/TestDW.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
+</Solution>

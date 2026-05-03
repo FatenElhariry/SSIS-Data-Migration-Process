@@ -1,0 +1,3815 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/31/2008 3:55:11 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XP-VMW"
+  DTS:CreatorName="XP-VMW\Christian"
+  DTS:DTSID="{DA5717BA-5CBA-49C9-B27A-C0CE726E7083}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactOrders"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="136"
+  DTS:VersionGUID="{87681696-1642-4C61-ABC3-08644D799109}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{FD15B02F-9C5E-4742-8BB3-37444246410F}"
+      DTS:ObjectName="LoadExecutionDate"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">1/1/1900</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{FCC2CF17-700B-4AD7-907C-D15757ED42C9}"
+      DTS:ObjectName="LoadExecutionId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{6BFDECD2-B812-4B43-B050-CA0027DCFB40}"
+      DTS:ObjectName="SourceLoadExecutionId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A747F905-7616-4F08-BDE6-3129FE3527E2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strRawFilePath] +  @[User::strMissingCustomerstRawFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMissingCustomersFileNamePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS\RawFiles\MissingCustomers.dat</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3EF924EE-02B9-45DF-A68F-46ED88D81FF7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMissingCustomerstRawFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MissingCustomers.dat</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{524B1297-A9E9-4D2E-B691-8D68EFCB55AB}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::RawFilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strRawFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS\RawFiles\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,18,OnPipelineRowsSent</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPipelineRowsSent"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dft_DW_FactOrders_ins"
+      DTS:CreationName="SSIS.ReplacementTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:DTSID="{5FE027E4-687A-45A2-8ABB-E381FADCC6CF}"
+      DTS:ExecutableType="SSIS.ReplacementTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dft_DW_FactOrders_ins"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Updates column values using expressions"
+              name="der_LoadExecutionId_OnlineOrderFlag"
+              usesDispositions="true"
+              id="2">
+              <inputs>
+                <input
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input"
+                  id="3">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="bool"
+                      cachedName="OnlineOrderFlag"
+                      lineageId="260"
+                      id="4" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="3"
+                  id="5">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="6"
+                      name="LoadExecutionId"
+                      truncationRowDisposition="FailComponent"
+                      id="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"
+                          id="7">@[$Package::LoadExecutionId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"
+                          id="8">@[$Package::LoadExecutionId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="9"
+                      name="OnlineOrderFlag"
+                      truncationRowDisposition="FailComponent"
+                      id="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"
+                          id="10">(DT_I2)(#260)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"
+                          id="11">(DT_I2)(OnlineOrderFlag)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="3"
+                  id="12">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="13"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="13" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="14"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="14" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimAddress_idbillingaddress"
+              usesDispositions="true"
+              version="6"
+              id="15">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="16">SELECT        IDAddress
+FROM            DW.DimAddress</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="17">select * from (SELECT        IDAddress
+FROM            DW.DimAddress) [refTable]
+where [refTable].[IDAddress] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="18">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="19">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="20">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="21">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDAddress" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="22">#286;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="23">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="24">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="25">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="26">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="27">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="28" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="29">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="BillToAddressID"
+                      lineageId="286"
+                      id="30">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="31">IDAddress</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="32" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="29"
+                  id="33">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="34"
+                      name="IDBillingAddress"
+                      truncationRowDisposition="FailComponent"
+                      id="34">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="35">IDAddress</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="29"
+                  id="36">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="29"
+                  id="37">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="38"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="38" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="39"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="39" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimAddress_idshippingaddress"
+              usesDispositions="true"
+              version="6"
+              id="40">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="41">SELECT        IDAddress
+FROM            DW.DimAddress</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="42">select * from (SELECT        IDAddress
+FROM            DW.DimAddress) [refTable]
+where [refTable].[IDAddress] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="43">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="44">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="45">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="46">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDAddress" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="47">#284;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="48">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="49">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="50">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="51">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="52">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="53" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="54">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ShipToAddressID"
+                      lineageId="284"
+                      id="55">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="56">IDAddress</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="57" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="54"
+                  id="58">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="59"
+                      name="IDShippingAddress"
+                      truncationRowDisposition="FailComponent"
+                      id="59">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="60">IDAddress</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="54"
+                  id="61">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="54"
+                  id="62">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="63"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="63" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="64"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="64" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimCustomer_idcustomer"
+              usesDispositions="true"
+              version="6"
+              id="65">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="66">SELECT        IDCustomer, CustomerID
+FROM            DW.DimCustomer</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="67">select * from (SELECT        IDCustomer, CustomerID
+FROM            DW.DimCustomer) [refTable]
+where [refTable].[CustomerID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="68">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="69">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="70">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="71">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDCustomer" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="72">#268;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="73">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="74">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="75">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="76">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="77">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="78" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="79">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      lineageId="268"
+                      id="80">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="81">CustomerID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="82" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="79"
+                  id="83">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="84"
+                      name="IDCustomer"
+                      truncationRowDisposition="FailComponent"
+                      id="84">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="85">IDCustomer</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="79"
+                  id="86">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="79"
+                  id="87">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="88"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="88" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="89"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="89" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimOrderProvenance_idorderprovenance"
+              usesDispositions="true"
+              version="6"
+              id="90">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="91">SELECT        IDOrderProvenance, ProvenanceCode 
+FROM            DW.DimOrderProvenance</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="92">select * from (SELECT        IDOrderProvenance, ProvenanceCode 
+FROM            DW.DimOrderProvenance) [refTable]
+where [refTable].[ProvenanceCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="93">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="94">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="95">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="96">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDOrderProvenance" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProvenanceCode" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="97">#9;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="98">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="99">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="100">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="101">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="102">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="103" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="104">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="OnlineOrderFlag"
+                      lineageId="9"
+                      id="105">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="106">ProvenanceCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="107" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="104"
+                  id="108">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="109"
+                      name="IDOrderProvenance"
+                      truncationRowDisposition="FailComponent"
+                      id="109">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="110">IDOrderProvenance</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="104"
+                  id="111">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="104"
+                  id="112">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="113"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="113" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="114"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="114" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              name="lkp_DimProduct_idproduct"
+              usesDispositions="true"
+              version="6"
+              id="115">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="116">SELECT        IDProduct, Cast(IDProduct as Int) IDProductINT
+FROM            DW.DimProduct</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="117">select * from (SELECT        IDProduct, Cast(IDProduct as Int) IDProductINT
+FROM            DW.DimProduct) [refTable]
+where [refTable].[IDProductINT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="118">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="119">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="120">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="121">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDProduct" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDProductINT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="122">#292;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="123">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="124">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="125">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="126">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="127">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="128" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="129">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      lineageId="292"
+                      id="130">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="131">IDProductINT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="132" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="129"
+                  id="133">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="134"
+                      name="IDProduct"
+                      truncationRowDisposition="FailComponent"
+                      id="134">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="135">IDProduct</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="129"
+                  id="136">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="129"
+                  id="137">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="138"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="138" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="139"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="139" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimTime_idduedate"
+              usesDispositions="true"
+              version="6"
+              id="140">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="141">SELECT        DateOfDay, IDTime
+FROM            DW.DimTime</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="142">select * from (SELECT        DateOfDay, IDTime
+FROM            DW.DimTime) [refTable]
+where [refTable].[DateOfDay] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="143">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="144">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="145">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="146">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateOfDay" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDTime" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="147">#254;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="148">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="149">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="150">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="151">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="152">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="153" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="154">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      lineageId="254"
+                      id="155">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="156">DateOfDay</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="157" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="154"
+                  id="158">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="159"
+                      name="IDDueDate"
+                      truncationRowDisposition="FailComponent"
+                      id="159">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="160">IDTime</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="154"
+                  id="161">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="154"
+                  id="162">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="163"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="163" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="164"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="164" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              name="lkp_DimTime_idorderdate"
+              usesDispositions="true"
+              version="6"
+              id="165">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="166">SELECT        DateOfDay, IDTime
+FROM            DW.DimTime</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="167">select * from (SELECT        DateOfDay, IDTime
+FROM            DW.DimTime) [refTable]
+where [refTable].[DateOfDay] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="168">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="169">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="170">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="171">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateOfDay" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDTime" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="172">#252;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="173">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="174">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="175">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="176">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="177">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="178" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="179">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="252"
+                      id="180">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="181">DateOfDay</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="182" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="179"
+                  id="183">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="184"
+                      name="IDOrderDate"
+                      truncationRowDisposition="FailComponent"
+                      id="184">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="185">IDTime</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="179"
+                  id="186">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="179"
+                  id="187">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="188"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="188" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="189"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="189" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Looks up values in a reference dataset by using exact matching."
+              localeId="1033"
+              name="lkp_DimTime_idshipdate"
+              usesDispositions="true"
+              version="6"
+              id="190">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="191">SELECT        DateOfDay, IDTime
+FROM            DW.DimTime</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  id="192">select * from (SELECT        DateOfDay, IDTime
+FROM            DW.DimTime) [refTable]
+where [refTable].[DateOfDay] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType"
+                  id="193">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage"
+                  id="194">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64"
+                  id="195">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml"
+                  id="196">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateOfDay" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDTime" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"
+                  id="197">#256;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="198">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType"
+                  id="199">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior"
+                  id="200">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage"
+                  id="201">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError"
+                  id="202">false</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection"
+                  id="203" />
+              </connections>
+              <inputs>
+                <input
+                  name="Lookup Input"
+                  id="204">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      lineageId="256"
+                      id="205">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn"
+                          id="206">DateOfDay</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="207" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="204"
+                  id="208">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="209"
+                      name="IDShipDate"
+                      truncationRowDisposition="FailComponent"
+                      id="209">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"
+                          id="210">IDTime</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="204"
+                  id="211">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="204"
+                  id="212">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="213"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="213" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="214"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="214" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Merges data from two datasets by using a join."
+              name="mrj_SalesOrderHeaderDetail"
+              version="1"
+              id="215">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType"
+                  id="216">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns"
+                  id="217">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual"
+                  id="218">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput"
+                  id="219">5</property>
+              </properties>
+              <inputs>
+                <input
+                  hasSideEffects="true"
+                  name="Merge Join Left Input"
+                  id="220">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      cachedSortKeyPosition="1"
+                      lineageId="402"
+                      id="221" />
+                    <inputColumn
+                      cachedDataType="ui1"
+                      cachedName="RevisionNumber"
+                      lineageId="403"
+                      id="222" />
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="404"
+                      id="223" />
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      lineageId="405"
+                      id="224" />
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      lineageId="406"
+                      id="225" />
+                    <inputColumn
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      lineageId="407"
+                      id="226" />
+                    <inputColumn
+                      cachedDataType="bool"
+                      cachedName="OnlineOrderFlag"
+                      lineageId="408"
+                      id="227" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      lineageId="409"
+                      id="228" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="PurchaseOrderNumber"
+                      lineageId="410"
+                      id="229" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="AccountNumber"
+                      lineageId="411"
+                      id="230" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      lineageId="412"
+                      id="231" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ShipMethod"
+                      lineageId="413"
+                      id="232" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="CreditCardApprovalCode"
+                      lineageId="414"
+                      id="233" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="SubTotal"
+                      lineageId="415"
+                      id="234" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      lineageId="416"
+                      id="235" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      lineageId="417"
+                      id="236" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      lineageId="418"
+                      id="237" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="Comment"
+                      lineageId="419"
+                      id="238" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ShipToAddressID"
+                      lineageId="421"
+                      id="239" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="BillToAddressID"
+                      lineageId="422"
+                      id="240" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  hasSideEffects="true"
+                  name="Merge Join Right Input"
+                  id="241">
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      cachedSortKeyPosition="1"
+                      lineageId="363"
+                      id="242" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="OrderQty"
+                      lineageId="364"
+                      id="243" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      lineageId="365"
+                      id="244" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="366"
+                      id="245" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="UnitPriceDiscount"
+                      lineageId="367"
+                      id="246" />
+                    <inputColumn
+                      cachedDataType="numeric"
+                      cachedName="LineTotal"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      lineageId="368"
+                      id="247" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="SalesOrderDetailID"
+                      lineageId="370"
+                      id="248" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  isSorted="true"
+                  name="Merge Join Output"
+                  id="249">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="ui1"
+                      lineageId="250"
+                      name="RevisionNumber"
+                      id="250">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="251">222</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="252"
+                      name="OrderDate"
+                      id="252">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="253">223</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="254"
+                      name="DueDate"
+                      id="254">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="255">224</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="256"
+                      name="ShipDate"
+                      id="256">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="257">225</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="ui1"
+                      lineageId="258"
+                      name="Status"
+                      id="258">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="259">226</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      lineageId="260"
+                      name="OnlineOrderFlag"
+                      id="260">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="261">227</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="262"
+                      name="SalesOrderNumber"
+                      id="262">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="263">228</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="264"
+                      name="PurchaseOrderNumber"
+                      id="264">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="265">229</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="266"
+                      name="AccountNumber"
+                      id="266">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="267">230</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="268"
+                      name="CustomerID"
+                      id="268">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="269">231</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="270"
+                      name="ShipMethod"
+                      id="270">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="271">232</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="272"
+                      name="CreditCardApprovalCode"
+                      id="272">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="273">233</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="274"
+                      name="SubTotal"
+                      id="274">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="275">234</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="276"
+                      name="TaxAmt"
+                      id="276">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="277">235</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="278"
+                      name="Freight"
+                      id="278">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="279">236</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="280"
+                      name="TotalDue"
+                      id="280">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="281">237</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="282"
+                      name="Comment"
+                      id="282">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="283">238</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="284"
+                      name="ShipToAddressID"
+                      id="284">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="285">239</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="286"
+                      name="BillToAddressID"
+                      id="286">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="287">240</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="288"
+                      name="SalesOrderID"
+                      sortKeyPosition="1"
+                      id="288">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="289">221</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="290"
+                      name="OrderQty"
+                      id="290">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="291">243</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="292"
+                      name="ProductID"
+                      id="292">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="293">244</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="294"
+                      name="UnitPrice"
+                      id="294">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="295">245</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="296"
+                      name="UnitPriceDiscount"
+                      id="296">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="297">246</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="numeric"
+                      lineageId="298"
+                      name="LineTotal"
+                      precision="38"
+                      scale="6"
+                      id="298">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="299">247</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="300"
+                      name="SalesOrderDetailID"
+                      id="300">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID"
+                          id="301">248</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ole_dst_FactOrders"
+              usesDispositions="true"
+              version="4"
+              id="302">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout"
+                  id="303">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"
+                  id="304">[DW].[FactOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"
+                  id="305"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="306"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="307">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage"
+                  id="308">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode"
+                  id="309">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity"
+                  id="310">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls"
+                  id="311">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"
+                  id="312">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize"
+                  id="313">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  id="314" />
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input"
+                  id="315">
+                  <inputColumns>
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="344"
+                      lineageId="262"
+                      id="316" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="343"
+                      lineageId="278"
+                      id="317" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="340"
+                      lineageId="294"
+                      id="318" />
+                    <inputColumn
+                      cachedDataType="i8"
+                      cachedName="IDOrderDate"
+                      externalMetadataColumnId="332"
+                      lineageId="184"
+                      id="319" />
+                    <inputColumn
+                      cachedDataType="i8"
+                      cachedName="IDDueDate"
+                      externalMetadataColumnId="334"
+                      lineageId="159"
+                      id="320" />
+                    <inputColumn
+                      cachedDataType="i8"
+                      cachedName="IDShipDate"
+                      externalMetadataColumnId="333"
+                      lineageId="209"
+                      id="321" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="IDProduct"
+                      externalMetadataColumnId="335"
+                      lineageId="134"
+                      id="322" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="IDCustomer"
+                      externalMetadataColumnId="336"
+                      lineageId="84"
+                      id="323" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="IDBillingAddress"
+                      externalMetadataColumnId="337"
+                      lineageId="34"
+                      id="324" />
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="IDShippingAddress"
+                      externalMetadataColumnId="338"
+                      lineageId="59"
+                      id="325" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="OrderQty"
+                      externalMetadataColumnId="339"
+                      lineageId="290"
+                      id="326" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="UnitPriceDiscount"
+                      externalMetadataColumnId="341"
+                      lineageId="296"
+                      id="327" />
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="342"
+                      lineageId="276"
+                      id="328" />
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="IDOrderProvenance"
+                      externalMetadataColumnId="345"
+                      lineageId="109"
+                      id="329" />
+                    <inputColumn
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="PurchaseOrderNumber"
+                      externalMetadataColumnId="346"
+                      lineageId="264"
+                      id="330" />
+                    <inputColumn
+                      cachedDataType="i8"
+                      cachedName="LoadExecutionId"
+                      externalMetadataColumnId="347"
+                      lineageId="6"
+                      id="331" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i8"
+                      name="IDOrderDate"
+                      id="332" />
+                    <externalMetadataColumn
+                      dataType="i8"
+                      name="IDShipDate"
+                      id="333" />
+                    <externalMetadataColumn
+                      dataType="i8"
+                      name="IDDueDate"
+                      id="334" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="IDProduct"
+                      id="335" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="IDCustomer"
+                      id="336" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="IDBillingAddress"
+                      id="337" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="IDShippingAddress"
+                      id="338" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="OrderQy"
+                      id="339" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="UnitPrice"
+                      id="340" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Discount"
+                      id="341" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="TaxAmount"
+                      id="342" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Freight"
+                      id="343" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SalesOrderNumber"
+                      id="344" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="IDOrderProvenance"
+                      id="345" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PurchaseOrderNumber"
+                      id="346" />
+                    <externalMetadataColumn
+                      dataType="i8"
+                      name="LoadExecutionId"
+                      id="347" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="315"
+                  id="348">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="349"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="349" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="350"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="350" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="ole_src_StgSalesOrderDetail"
+              usesDispositions="true"
+              version="7"
+              id="351">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout"
+                  id="352">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"
+                  id="353"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"
+                  id="354"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="355">SELECT        SalesOrderID, OrderQty, ProductID, UnitPrice, UnitPriceDiscount, LineTotal, ModifiedDate, SalesOrderDetailID
+FROM            Staging.StgSalesOrderDetail
+WHERE LoadExecutionId = ?
+ORDER BY SalesOrderID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"
+                  id="356"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="357">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage"
+                  id="358">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode"
+                  id="359">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"
+                  id="360">"Parameter0:Input",{6BFDECD2-47ED-4B43-B050-CA0027DCFB40};</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  id="361" />
+              </connections>
+              <outputs>
+                <output
+                  isSorted="true"
+                  name="OLE DB Source Output"
+                  id="362">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="371"
+                      lineageId="363"
+                      name="SalesOrderID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent"
+                      id="363" />
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="372"
+                      lineageId="364"
+                      name="OrderQty"
+                      truncationRowDisposition="FailComponent"
+                      id="364" />
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="373"
+                      lineageId="365"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent"
+                      id="365" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="374"
+                      lineageId="366"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent"
+                      id="366" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="375"
+                      lineageId="367"
+                      name="UnitPriceDiscount"
+                      truncationRowDisposition="FailComponent"
+                      id="367" />
+                    <outputColumn
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="376"
+                      lineageId="368"
+                      name="LineTotal"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent"
+                      id="368" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="377"
+                      lineageId="369"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent"
+                      id="369" />
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="378"
+                      lineageId="370"
+                      name="SalesOrderDetailID"
+                      truncationRowDisposition="FailComponent"
+                      id="370" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="SalesOrderID"
+                      id="371" />
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="OrderQty"
+                      id="372" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductID"
+                      id="373" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="UnitPrice"
+                      id="374" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="UnitPriceDiscount"
+                      id="375" />
+                    <externalMetadataColumn
+                      dataType="numeric"
+                      name="LineTotal"
+                      precision="38"
+                      scale="6"
+                      id="376" />
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      id="377" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="SalesOrderDetailID"
+                      id="378" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output"
+                  id="379">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="380"
+                      name="SalesOrderID"
+                      id="380" />
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="381"
+                      name="OrderQty"
+                      id="381" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="382"
+                      name="ProductID"
+                      id="382" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="383"
+                      name="UnitPrice"
+                      id="383" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="384"
+                      name="UnitPriceDiscount"
+                      id="384" />
+                    <outputColumn
+                      dataType="numeric"
+                      lineageId="385"
+                      name="LineTotal"
+                      precision="38"
+                      scale="6"
+                      id="385" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="386"
+                      name="ModifiedDate"
+                      id="386" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="387"
+                      name="SalesOrderDetailID"
+                      id="387" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="388"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="388" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="389"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="389" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ole_src_StgSalesOrderHeader"
+              usesDispositions="true"
+              version="7"
+              id="390">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout"
+                  id="391">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"
+                  id="392"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"
+                  id="393"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  id="394">SELECT        SalesOrderID, RevisionNumber, OrderDate, DueDate, ShipDate, Status, OnlineOrderFlag, SalesOrderNumber, PurchaseOrderNumber, AccountNumber, CustomerID, 
+                         ShipMethod, CreditCardApprovalCode, SubTotal, TaxAmt, Freight, TotalDue, Comment, ModifiedDate, ShipToAddressID, BillToAddressID
+FROM            Staging.StgSalesOrderHeader
+WHERE LoadExecutionId = ?
+ORDER BY SalesOrderID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"
+                  id="395"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage"
+                  id="396">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage"
+                  id="397">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode"
+                  id="398">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"
+                  id="399">"Parameter0:Input",{6BFDECD2-47ED-4B43-B050-CA0027DCFB40};</property>
+              </properties>
+              <connections>
+                <connection
+                  connectionManagerID="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+                  connectionManagerRefId="Project.ConnectionManagers[cmgr_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  id="400" />
+              </connections>
+              <outputs>
+                <output
+                  isSorted="true"
+                  name="OLE DB Source Output"
+                  id="401">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="423"
+                      lineageId="402"
+                      name="SalesOrderID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent"
+                      id="402" />
+                    <outputColumn
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="424"
+                      lineageId="403"
+                      name="RevisionNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="403" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="425"
+                      lineageId="404"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent"
+                      id="404" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="426"
+                      lineageId="405"
+                      name="DueDate"
+                      truncationRowDisposition="FailComponent"
+                      id="405" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="427"
+                      lineageId="406"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent"
+                      id="406" />
+                    <outputColumn
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="428"
+                      lineageId="407"
+                      name="Status"
+                      truncationRowDisposition="FailComponent"
+                      id="407" />
+                    <outputColumn
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="429"
+                      lineageId="408"
+                      name="OnlineOrderFlag"
+                      truncationRowDisposition="FailComponent"
+                      id="408" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="430"
+                      length="25"
+                      lineageId="409"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="409" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="431"
+                      length="25"
+                      lineageId="410"
+                      name="PurchaseOrderNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="410" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="432"
+                      length="25"
+                      lineageId="411"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent"
+                      id="411" />
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="433"
+                      lineageId="412"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent"
+                      id="412" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="434"
+                      length="50"
+                      lineageId="413"
+                      name="ShipMethod"
+                      truncationRowDisposition="FailComponent"
+                      id="413" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="435"
+                      length="15"
+                      lineageId="414"
+                      name="CreditCardApprovalCode"
+                      truncationRowDisposition="FailComponent"
+                      id="414" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="436"
+                      lineageId="415"
+                      name="SubTotal"
+                      truncationRowDisposition="FailComponent"
+                      id="415" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="437"
+                      lineageId="416"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent"
+                      id="416" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="438"
+                      lineageId="417"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent"
+                      id="417" />
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="439"
+                      lineageId="418"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent"
+                      id="418" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="440"
+                      length="128"
+                      lineageId="419"
+                      name="Comment"
+                      truncationRowDisposition="FailComponent"
+                      id="419" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="441"
+                      lineageId="420"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent"
+                      id="420" />
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="442"
+                      lineageId="421"
+                      name="ShipToAddressID"
+                      truncationRowDisposition="FailComponent"
+                      id="421" />
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="443"
+                      lineageId="422"
+                      name="BillToAddressID"
+                      truncationRowDisposition="FailComponent"
+                      id="422" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="SalesOrderID"
+                      id="423" />
+                    <externalMetadataColumn
+                      dataType="ui1"
+                      name="RevisionNumber"
+                      id="424" />
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="OrderDate"
+                      id="425" />
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="DueDate"
+                      id="426" />
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ShipDate"
+                      id="427" />
+                    <externalMetadataColumn
+                      dataType="ui1"
+                      name="Status"
+                      id="428" />
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="OnlineOrderFlag"
+                      id="429" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SalesOrderNumber"
+                      id="430" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PurchaseOrderNumber"
+                      id="431" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="AccountNumber"
+                      id="432" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="CustomerID"
+                      id="433" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ShipMethod"
+                      id="434" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CreditCardApprovalCode"
+                      id="435" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="SubTotal"
+                      id="436" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="TaxAmt"
+                      id="437" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="Freight"
+                      id="438" />
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="TotalDue"
+                      id="439" />
+                    <externalMetadataColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="Comment"
+                      id="440" />
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      id="441" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ShipToAddressID"
+                      id="442" />
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="BillToAddressID"
+                      id="443" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output"
+                  id="444">
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="445"
+                      name="SalesOrderID"
+                      id="445" />
+                    <outputColumn
+                      dataType="ui1"
+                      lineageId="446"
+                      name="RevisionNumber"
+                      id="446" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="447"
+                      name="OrderDate"
+                      id="447" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="448"
+                      name="DueDate"
+                      id="448" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="449"
+                      name="ShipDate"
+                      id="449" />
+                    <outputColumn
+                      dataType="ui1"
+                      lineageId="450"
+                      name="Status"
+                      id="450" />
+                    <outputColumn
+                      dataType="bool"
+                      lineageId="451"
+                      name="OnlineOrderFlag"
+                      id="451" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="452"
+                      name="SalesOrderNumber"
+                      id="452" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="453"
+                      name="PurchaseOrderNumber"
+                      id="453" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="454"
+                      name="AccountNumber"
+                      id="454" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="455"
+                      name="CustomerID"
+                      id="455" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="456"
+                      name="ShipMethod"
+                      id="456" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="457"
+                      name="CreditCardApprovalCode"
+                      id="457" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="458"
+                      name="SubTotal"
+                      id="458" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="459"
+                      name="TaxAmt"
+                      id="459" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="460"
+                      name="Freight"
+                      id="460" />
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="461"
+                      name="TotalDue"
+                      id="461" />
+                    <outputColumn
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="462"
+                      name="Comment"
+                      id="462" />
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="463"
+                      name="ModifiedDate"
+                      id="463" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="464"
+                      name="ShipToAddressID"
+                      id="464" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="465"
+                      name="BillToAddressID"
+                      id="465" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="466"
+                      name="ErrorCode"
+                      specialFlags="1"
+                      id="466" />
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="467"
+                      name="ErrorColumn"
+                      specialFlags="2"
+                      id="467" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="179"
+              name="Derived Column Output"
+              startId="5"
+              id="468" />
+            <path
+              endId="315"
+              name="Lookup Match Output"
+              startId="108"
+              id="469" />
+            <path
+              endId="29"
+              name="Lookup Match Output"
+              startId="83"
+              id="470" />
+            <path
+              endId="79"
+              name="Lookup Match Output"
+              startId="133"
+              id="471" />
+            <path
+              endId="54"
+              name="Lookup Output"
+              startId="33"
+              id="472" />
+            <path
+              endId="154"
+              name="Lookup Output"
+              startId="183"
+              id="473" />
+            <path
+              endId="204"
+              name="Lookup Output"
+              startId="158"
+              id="474" />
+            <path
+              endId="129"
+              name="Lookup Output"
+              startId="208"
+              id="475" />
+            <path
+              endId="104"
+              name="Lookup Output"
+              startId="58"
+              id="476" />
+            <path
+              endId="3"
+              name="Merge Join Output"
+              startId="249"
+              id="477" />
+            <path
+              endId="220"
+              name="OLE DB Source Output"
+              startId="401"
+              id="478" />
+            <path
+              endId="241"
+              name="OLE DB Source Output"
+              startId="362"
+              id="479" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_Truncate_DW_FactOcders"
+      DTS:CreationName="SSIS.ReplacementTask"
+      DTS:Description="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:DTSID="{389E0D37-917A-40C0-947E-6654F3B84C29}"
+      DTS:ExecutableType="SSIS.ReplacementTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_Truncate_DW_FactOcders"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{25BA1AB6-6CD3-4756-B825-F73689CC7A27}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [DW].[FactOrders];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F9852ED4-9ED2-4C2F-A445-C8A0DC0C02F4}"
+      DTS:From="Package\sql_Truncate_DW_FactOcders"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\dft_DW_FactOrders_ins" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\dft_DW_FactOrders_ins"
+          TopLeft="5.50000000000003,107.1" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\sql_Truncate_DW_FactOcders"
+          TopLeft="5.5,5.50000000000007" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="115.9,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dft_DW_FactOrders_ins">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="291,42"
+          Id="215"
+          TopLeft="357.5,107.1" />
+        <NodeLayout
+          Size="291,42"
+          Id="140"
+          TopLeft="357.5,411.9" />
+        <NodeLayout
+          Size="291,42"
+          Id="65"
+          TopLeft="357.5,716.699999999999" />
+        <NodeLayout
+          Size="291,42"
+          Id="390"
+          TopLeft="5.50000000000003,5.49999999999995" />
+        <NodeLayout
+          Size="291,42"
+          Id="351"
+          TopLeft="357.5,5.49999999999995" />
+        <NodeLayout
+          Size="291,42"
+          Id="165"
+          TopLeft="357.5,310.3" />
+        <NodeLayout
+          Size="291,42"
+          Id="90"
+          TopLeft="357.5,1021.5" />
+        <NodeLayout
+          Size="291,42"
+          Id="15"
+          TopLeft="358.9285714529,818.3" />
+        <NodeLayout
+          Size="291,42"
+          Id="302"
+          TopLeft="357.5,1123.1" />
+        <NodeLayout
+          Size="291,42"
+          Id="190"
+          TopLeft="357.5,513.5" />
+        <NodeLayout
+          Size="291,42"
+          Id="115"
+          TopLeft="357.5,615.099999999999" />
+        <NodeLayout
+          Size="291,42"
+          Id="40"
+          TopLeft="357.5,919.9" />
+        <NodeLayout
+          Size="291,42"
+          Id="2"
+          TopLeft="357.5,208.7" />
+        <EdgeLayout
+          Id="479"
+          TopLeft="503,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.1666666666666,59.6"
+              Start="0,0"
+              End="47.1666666666666,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5644565960356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5644565960356"
+                    Point2="0,35.5644565960356"
+                    Point3="4,35.5644565960356" />
+                  <mssgle:LineSegment
+                    End="43.1666666666666,35.5644565960356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.1666666666666,35.5644565960356"
+                    Point2="47.1666666666666,35.5644565960356"
+                    Point3="47.1666666666666,39.5644565960356" />
+                  <mssgle:LineSegment
+                    End="47.1666666666666,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="478"
+          TopLeft="151,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="304.833333333333,59.6"
+              Start="0,0"
+              End="304.833333333333,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5644565960356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5644565960356"
+                    Point2="0,35.5644565960356"
+                    Point3="4,35.5644565960356" />
+                  <mssgle:LineSegment
+                    End="300.833333333333,35.5644565960356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="300.833333333333,35.5644565960356"
+                    Point2="304.833333333333,35.5644565960356"
+                    Point3="304.833333333333,39.5644565960356" />
+                  <mssgle:LineSegment
+                    End="304.833333333333,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="477"
+          TopLeft="503,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="476"
+          TopLeft="503,961.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="475"
+          TopLeft="503,555.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.599999999999"
+              Start="0,0"
+              End="0,52.099999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.099999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453124999995,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="474"
+          TopLeft="503,453.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="473"
+          TopLeft="503,352.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="472"
+          TopLeft="503.71428572645,860.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="471"
+          TopLeft="503,657.099999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="470"
+          TopLeft="503.71428572645,758.699999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6000000000009"
+              Start="0,0"
+              End="0,52.1000000000009">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1000000000009" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125000005,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="469"
+          TopLeft="503,1063.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.5999999999999"
+              Start="0,0"
+              End="0,52.0999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.0999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.2453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="468"
+          TopLeft="503,250.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_DW_FactOrders_ins\390">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_DW_FactOrders_ins\351">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_DW_FactOrders_ins\15">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dft_DW_FactOrders_ins\302">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="cmgr_MDS_DB"
+  DTS:DTSID="{B7673B87-0869-414E-83CD-05BA4835B42B}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;User ID=;Initial Catalog=AdventureworksLT;Provider=MSOLEDBSQL19.1;Persist Security Info=False;OLE DB Services=-1;Integrated Security=SSPI;Application Name=SSIS-{B7673B87-0869-414E-83CD-05BA4835B42B}cmgr_MDS_DB;Initial File Name=;Trust Server Certificate=True;Server SPN=;Authentication=;Access Token=;Host Name In Certificate=;Server Certificate=;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
