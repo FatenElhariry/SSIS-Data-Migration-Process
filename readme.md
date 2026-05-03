@@ -10,4 +10,4 @@ The main goal is:
 3. learn the logging and error handling features of SSIS, and how to use them to troubleshoot and optimize data migration and transformation processes.
 
 
-we will be working [migration run book](migration_run_book.md) as well.
+we will be working [migration run book](migration-runbook.md) as well.
